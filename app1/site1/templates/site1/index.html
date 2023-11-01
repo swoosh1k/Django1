@@ -1,0 +1,18 @@
+{% extends 'site1/base.html' %}
+
+
+
+{% block content %}
+<h1>{{title}}</h1>
+<ul>
+    {% for p in posts %}
+    <li>
+        <h2>{{p.title}}</h2>
+       <p>{{p.content|linebreaks|truncatewords:50}}</p>
+        <li><a href="{% url 'post' p.pk %}">Читать пост</a></li>
+        <hr>
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
